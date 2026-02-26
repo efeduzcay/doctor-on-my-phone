@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description"
+    content="Cebimdeki Doktor — Yapay zeka destekli tıbbi triaj asistanı. Semptomlarınızı analiz edin, aciliyet seviyenizi öğrenin.">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cebimdeki Doktor">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <title>Cebimdeki Doktor | AI Tıbbi Triaj Asistanı</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <span class="brand-icon">🩺</span>
+        Cebimdeki Doktor
+      </a>
+      <div class="navbar-links" id="navLinks">
+        <a href="#nasil-calisir">Nasıl Çalışır</a>
+        <a href="#analiz">Analiz</a>
+        <a href="#karsilastir">Karşılaştır</a>
+        <a href="#ozellikler">Özellikler</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü aç">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        AI Destekli Tıbbi Triaj
+      </div>
+      <h1>
+        Sağlığınız İçin<br>
+        <span class="gradient-text">Akıllı Asistanınız</span>
+      </h1>
+      <p>
+        Yapay zeka teknolojisi ile semptomlarınızı analiz edin, aciliyet seviyenizi öğrenin
+        ve doğru bölüme yönlendirilmenizi sağlayın.
+      </p>
+      <div class="hero-cta">
+        <a href="#analiz" class="btn btn-primary">
+          🔬 Analiz Başlat
+        </a>
+        <a href="#nasil-calisir" class="btn btn-secondary">
+          Nasıl Çalışır?
+        </a>
+      </div>
+
+      <!-- Stats counter -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="12847">0</span>
+          <span class="stat-label">Analiz Yapıldı</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="6">0</span>
+          <span class="stat-label">Tıbbi Kategori</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span>
+          <span class="stat-label">% Memnuniyet</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== HOW IT WORKS ======== -->
+  <section class="section" id="nasil-calisir">
+    <div class="container">
+      <h2 class="section-title reveal">Nasıl Çalışır?</h2>
+      <p class="section-subtitle reveal">Sadece 3 adımda sağlık durumunuz hakkında ön değerlendirme alın.</p>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-icon">📸</div>
+          <div class="step-number">1</div>
+          <h3>Fotoğraf Yükleyin</h3>
+          <p>Cilt lezyonu, boğaz kızarıklığı, şişlik gibi belirtilerin fotoğrafını yükleyin.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">💬</div>
+          <div class="step-number">2</div>
+          <h3>Semptomları Anlatın</h3>
+          <p>Belirtilerinizi yazın, yapay zeka asistanı gerektiğinde ek sorular soracaktır.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">📋</div>
+          <div class="step-number">3</div>
+          <h3>Sonucu Alın</h3>
+          <p>Aciliyet seviyesi, yönlendirilmeniz gereken bölüm ve yapmanız gerekenleri öğrenin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== MAIN APP / CHAT ======== -->
+  <section class="section app-section" id="analiz">
+    <div class="container">
+      <h2 class="section-title reveal">Semptom Analizi</h2>
+      <p class="section-subtitle reveal">Belirtilerinizi yazın veya fotoğraf yükleyin. AI asistanınız sizi yönlendirsin.
+      </p>
+
+      <div class="app-layout reveal">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <!-- Patient Info -->
+          <div class="sidebar-card">
+            <h3>👤 Hasta Bilgileri</h3>
+            <div class="patient-info-grid">
+              <div class="patient-field">
+                <label for="patientAge">Yaş</label>
+                <input type="number" id="patientAge" placeholder="ör. 35" min="0" max="120" class="patient-input">
+              </div>
+              <div class="patient-field">
+                <label for="patientGender">Cinsiyet</label>
+                <select id="patientGender" class="patient-input">
+                  <option value="">Seçiniz</option>
+                  <option value="male">Erkek</option>
+                  <option value="female">Kadın</option>
+                  <option value="other">Diğer</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anamnesis -->
+          <div class="sidebar-card">
+            <h3>🏥 Tıbbi Geçmiş</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Varsa kronik hastalıklarınızı seçin:
+            </p>
+            <div class="badge-grid" id="anamnesisGrid">
+              <button class="badge" data-condition="diabetes">🩸 Diyabet</button>
+              <button class="badge" data-condition="hypertension">💉 Hipertansiyon</button>
+              <button class="badge" data-condition="asthma">🫁 Astım</button>
+              <button class="badge" data-condition="heart">❤️ Kalp Hast.</button>
+              <button class="badge" data-condition="allergy">🤧 Alerji</button>
+              <button class="badge" data-condition="thyroid">🦋 Tiroid</button>
+              <button class="badge" data-condition="kidney">🫘 Böbrek Hast.</button>
+              <button class="badge" data-condition="cancer">🎗️ Kanser</button>
+              <button class="badge" data-condition="pregnancy">🤰 Hamilelik</button>
+              <button class="badge" data-condition="smoking">🚬 Sigara</button>
+            </div>
+          </div>
+
+          <!-- Epidemiological Alert -->
+          <div class="sidebar-card">
+            <h3>🌍 Mevsimsel Uyarılar</h3>
+            <div class="epi-alert" id="epiAlert">
+              <span class="alert-icon">⚠️</span>
+              <div>
+                <strong>Şubat 2026 — Grip Sezonu</strong><br>
+                Soğuk algınlığı ve grip vakaları mevsim normallerinin üzerinde.
+                Ateş ve öksürük belirtilerinizi mutlaka bildirin.
+              </div>
+              <button class="epi-dismiss" id="epiDismiss" aria-label="Kapat">✕</button>
+            </div>
+          </div>
+
+          <!-- History -->
+          <div class="sidebar-card">
+            <h3>📊 Geçmiş Analizler</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Önceki değerlendirmelerinizi görüntüleyin.
+            </p>
+            <button class="btn btn-secondary" id="historyBtn"
+              style="width: 100%; border-color: var(--accent); color: var(--accent-light);">Geçmişi Aç</button>
+          </div>
+
+          <!-- Image Upload -->
+          <div class="sidebar-card">
+            <h3>📷 Görsel Yükle</h3>
+            <div class="upload-zone" id="uploadZone">
+              <input type="file" id="imageInput" accept="image/*" multiple aria-label="Görsel yükle">
+              <div class="upload-icon">🖼️</div>
+              <p><span class="highlight">Tıklayın</span> veya sürükleyip bırakın</p>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">PNG, JPG — maks 10MB</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+          <div class="chat-header">
+            <div class="avatar">🤖</div>
+            <div class="info">
+              <h4>Cebimdeki Doktor AI</h4>
+              <span>Çevrimiçi</span>
+            </div>
+            <div class="chat-header-actions">
+              <button class="icon-btn-sm" id="clearChatBtn" title="Sohbeti Temizle"
+                aria-label="Sohbeti temizle">🗑️</button>
+            </div>
+          </div>
+
+          <!-- Quick Symptom Pills -->
+          <div class="quick-symptoms" id="quickSymptoms">
+            <span class="quick-label">Hızlı Seçim:</span>
+            <button class="quick-pill" data-symptom="Baş ağrısı ve baş dönmesi var">🤕 Baş ağrısı</button>
+            <button class="quick-pill" data-symptom="Boğazım ağrıyor ve yutkunamıyorum">🤒 Boğaz ağrısı</button>
+            <button class="quick-pill" data-symptom="Kolumda kırmızı döküntü var, kaşınıyor">🔴 Cilt döküntüsü</button>
+            <button class="quick-pill" data-symptom="Göğsümde ağrı var ve nefes almakta zorlanıyorum">💔 Göğüs
+              ağrısı</button>
+            <button class="quick-pill" data-symptom="Ateşim 38.5 derece, halsiz hissediyorum">🌡️ Ateş</button>
+            <button class="quick-pill" data-symptom="Dizim şişti ve yürürken ağrıyor">🦵 Eklem ağrısı</button>
+            <button class="quick-pill" data-symptom="Gözüm kızardı ve sulanıyor">👁️ Göz sorunu</button>
+            <button class="quick-pill" data-symptom="Midem bulanıyor ve kusuyorum">🤢 Mide sorunu</button>
+          </div>
+
+          <div class="chat-messages" id="chatMessages">
+            <!-- Welcome message -->
+            <div class="message ai">
+              <div class="msg-avatar">🤖</div>
+              <div class="bubble">
+                Merhaba! 👋 Ben Cebimdeki Doktor yapay zeka asistanınız.<br><br>
+                Size nasıl yardımcı olabilirim? Belirtilerinizi yazabilir, hızlı seçim butonlarını kullanabilir
+                veya soldaki panelden fotoğraf yükleyebilirsiniz.
+                <br><br>
+                <em style="font-size: 0.75rem; color: var(--text-muted);">
+                  💡 İpucu: Yaş, cinsiyet ve tıbbi geçmişinizi girerek daha kişiselleştirilmiş bir değerlendirme
+                  alabilirsiniz.
+                </em>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <div class="image-preview-strip" id="imagePreviewStrip"></div>
+            <div class="chat-input-row">
+              <textarea id="chatInput"
+                placeholder="Belirtilerinizi yazın… (örn. 'Kolumda kırmızı döküntü var, 2 gündür kaşınıyor')"
+                rows="1"></textarea>
+              <div class="input-actions">
+                <button class="icon-btn" id="voiceBtn" aria-label="Sesle yaz" title="Sesle Yaz">
+                  🎤
+                </button>
+                <button class="icon-btn" id="uploadBtn" aria-label="Görsel yükle" title="Görsel Yükle">
+                  📎
+                </button>
+                <button class="icon-btn send-btn" id="sendBtn" aria-label="Gönder" title="Gönder">
+                  ➤
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== IMAGE COMPARISON ======== -->
+  <section class="section" id="karsilastir">
+    <div class="container">
+      <h2 class="section-title reveal">Görsel Değişim Takibi</h2>
+      <p class="section-subtitle reveal">İki farklı zamanda çekilen fotoğrafları karşılaştırarak iyileşme veya
+        kötüleşmeyi takip edin.</p>
+
+      <div class="comparison-container reveal">
+        <div class="comparison-slider" id="comparisonSlider">
+          <div class="comparison-placeholder">
+            <div class="comp-icon">🔍</div>
+            <p>İki fotoğraf yükleyerek karşılaştırma yapabilirsiniz.</p>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">
+              Aynı bölgenin farklı zamanlardaki fotoğraflarını yükleyin.
+            </p>
+          </div>
+        </div>
+        <div class="comparison-upload-btns">
+          <label class="btn btn-secondary" for="compareImg1">
+            📅 Önceki Fotoğraf
+            <input type="file" id="compareImg1" accept="image/*" style="display:none">
+          </label>
+          <label class="btn btn-secondary" for="compareImg2">
+            📅 Sonraki Fotoğraf
+            <input type="file" id="compareImg2" accept="image/*" style="display:none">
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FEATURES ======== -->
+  <section class="section" id="ozellikler">
+    <div class="container">
+      <h2 class="section-title reveal">Özellikler</h2>
+      <p class="section-subtitle reveal">Gelişmiş yapay zeka ile sağlık değerlendirmeniz için güçlü araçlar.</p>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feat-icon">🧠</div>
+          <h3>Akıllı Analiz</h3>
+          <p>Görsellerdeki renk, doku ve boyut özelliklerini tanımlayarak tıbbi veritabanlarıyla çapraz referans yapar.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🚨</div>
+          <h3>Kırmızı Bayrak Tespiti</h3>
+          <p>Kalp krizi, inme veya sepsis gibi hayati tehlike işaretlerini anında tespit eder ve acil talimatlar verir.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🏥</div>
+          <h3>Bölüm Yönlendirme</h3>
+          <p>Semptomlarınıza göre doğru uzmanlık alanına yönlendirir: Dermatoloji, Kardiyoloji, KBB ve diğerleri.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">📊</div>
+          <h3>Aciliyet Skorlama</h3>
+          <p>Düşük, Orta ve Yüksek olarak aciliyet seviyesi belirler ve buna göre aksiyon önerir.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🔄</div>
+          <h3>Değişim Takibi</h3>
+          <p>Aynı bölgenin farklı zamanlardaki fotoğraflarını karşılaştırarak iyileşme veya kötüleşmeyi tespit eder.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🛡️</div>
+          <h3>Gizlilik & Güvenlik</h3>
+          <p>Verileriniz şifrelenir ve saklanmaz. Tıbbi bilgileriniz yalnızca analiz sırasında işlenir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-icon">🩺</span>
+          Cebimdeki Doktor
+        </div>
+        <p class="footer-disclaimer">
+          Bu uygulama yalnızca bilgilendirme amaçlıdır ve resmi tıbbi teşhis niteliği taşımaz.
+          Sağlık endişeleriniz için derhal nitelikli bir sağlık uzmanına danışın.
+        </p>
+        <div class="footer-links">
+          <a href="#">Gizlilik</a>
+          <a href="#">Kullanım Şartları</a>
+          <a href="#">İletişim</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======== SCROLL TO TOP ======== -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Yukarı çık" title="Yukarı çık">
+    ↑
+  </button>
+
+  <!-- ======== HISTORY MODAL ======== -->
+  <div class="emergency-modal" id="historyModal" role="dialog" aria-modal="true" aria-label="Geçmiş Analizler">
+    <div class="emergency-modal-content history-modal-content"
+      style="max-height: 85vh; overflow-y: auto; text-align: left; padding: var(--space-xl);">
+      <h2 style="margin-bottom: var(--space-md); text-align: center; font-size: 1.5rem; color: var(--text-primary);">📊
+        Geçmiş Analizler</h2>
+      <div id="historyList" style="display: flex; flex-direction: column; gap: var(--space-md);">
+        <!-- History items will be injected here -->
+        <div style="text-align:center; color: var(--text-muted); padding: 2rem 0;">Henüz bir analiz geçmişiniz
+          bulunmuyor.</div>
+      </div>
+      <div
+        style="display: flex; justify-content: space-between; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--border);">
+        <button class="btn btn-secondary" id="clearHistoryBtn"
+          style="border-color: rgba(239, 68, 68, 0.4); color: var(--severity-high);"><small>🗑️ Sil</small></button>
+        <button class="btn btn-secondary history-close" id="historyCloseBtn">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== EMERGENCY MODAL ======== -->
+  <div class="emergency-modal" id="emergencyModal" role="dialog" aria-modal="true" aria-label="Acil durum">
+    <div class="emergency-modal-content">
+      <div class="emergency-icon-big">🚨</div>
+      <h2>ACİL DURUM</h2>
+      <p>Belirtileriniz hayati tehlike arz edebilir. Lütfen derhal acil yardım çağırın.</p>
+      <a href="tel:112" class="btn btn-emergency">📞 112'yi Ara</a>
+      <button class="btn btn-secondary emergency-close" id="emergencyClose">Kapat</button>
+      <p class="emergency-note">Türkiye acil yardım hattı: <strong>112</strong></p>
+    </div>
+  </div>
+
+  <!-- ======== TOAST NOTIFICATION ======== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/upload.js"></script>
+  <script src="js/gemini.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
