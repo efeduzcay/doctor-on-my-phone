@@ -1,4 +1,4 @@
-#Cebimdeki Doktor 🩺
+# **Cebimdeki Doktor 🩺**
 
 [![Turkish](https://img.shields.io/badge/Language-Turkish-red)](#)
 [![Tech Stack](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20JS-blue)](#)
